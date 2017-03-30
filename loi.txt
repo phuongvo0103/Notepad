@@ -1,0 +1,52 @@
+﻿- chưa bắt lỗi dữ liệu rỗng ở menu thêm hợp đông - > thêm chi tiết hợp đồng . ok
+- chưa bắt lỗi dữ liệu rỗng chức năng thanh toán hợp đông form gia han.ok
+- chưa bắt lỗi dữ liệu rỗng thêm mới tài sản.ok(xem lại)
+- chưa bắt lỗi dữ liệu rỗng thêm tài sản vô bảng thanh lý (số tiền thanh lý).ok
+-----------------------------------------------------------------------------------------------------
+- lỗi danh sánh đóng lãi(số tiền đóng chưa đinh dạng qua vnd).ok
+	+ ngày đóng chưa định dạng qua dd/MM/yyyy .ok
+- chưa phân trang thêm hợp đồng -> thê chi tiết hợp đồng.ok
+-----------------------------------------------------------------------------------------------------
+- bắt lỗi đăng nhập.tạm ổn
+- lỗi gia hạn đóng lãi.ok
+-----------------------------------------------------------------------------------------------------
+- Thống kê doanh thu.OK
+	+ thống kê chỉ cần sum(tienthanhtoan) dv trường hợp chưa gia hạn + TienThanhLy
+	+dv trường hợp đã gia hạn thì sum(tienthanhtoan) + sum(sotiencam*GiaHan.MucLaiSuat) 
+								+ sum(sotiendong*(ngaybatdau-ngayketthuc))+ Tiền thanh lý
+----------------------------------------------------------------------------------------------------								
+- sửa lai sql chổ hợp đồng sắp hết hạn và hết hạn.OK
+---------------------------------------------------------------------------------------------------								
+- lỗi số tiền cầm nhỏ hơn 80tr.ok
+- thời gian gia hạn phải lớn hơn thời gian kết thúc hợp đồng.ok
+--------------------------------------------------------------------------------------------------
+- lấy dữ liệu hàng thanh lý (lỗi hình ảnh). sửa nhưng chưa test
+
+- sửa lỗi cột hình thức ở tab hợp đồng hết hạn.
+
+- căn chỉnh định dạng lại cho đúng theo yêu cầu checkList.OK
+----------------------------------------------------------------------------------------------------
+- lỗi : sửa trang index chổ hiển thị hàng thanh lý . đổi tên tenTaiSanThanhLy -> tenTaiSan
+trong bean:write properties
+
+-xem lại chổ xóa tài sản.?
+
+- sửa lại trang admin.jsp -> hợp đồng hết han ->
+																		<logic:equal name="hd" property="tinhTrang" value="0">
+																		<bean:define id="maCTHD" name="hd" property="maCTHD"/> 
+																		<html:link action="/thanhToan?maCTHD=${maCTHD}">
+																			<span class="glyphicon glyphicon-plus">Thanh toán | Gia hạn</span>
+																		</html:link>
+																	</logic:equal>
+																	
+- thêm cột thanh lý trong admin.jsp -> hợp đồng hết hạn
+
+																<td>
+																	<logic:equal name="hd" property="tinhTrang" value="0">
+																			<bean:define id="maCTHD" name="hd" property="maCTHD"/>
+																					<html:link action="/cap-nhat-thanh-ly.do?maCTHD=${maCTHD}">
+																						<span class="glyphicon glyphicon-plus">Thanh lý</span>
+																					</html:link>
+																		</logic:equal>
+																</td>
+																	
